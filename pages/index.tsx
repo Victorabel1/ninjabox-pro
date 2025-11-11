@@ -1,78 +1,99 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import Head from "next/head";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { DynamicHeroScene } from "@/components/scenes/DynamicHeroScene"; 
+import { TrustedBy } from "@/components/pages/home/TrustedBy"; 
+import { ServicesOverview } from "@/components/pages/home/ServicesOverview"; 
+import { WhyChooseUs } from "@/components/pages/home/WhyChooseUs"; 
+import { CtaBlock } from "@/components/pages/home/CtaBlock"; 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// Animation variants for Framer Motion
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 12,
+    },
+  },
+};
 
 export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black`}
-    >
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Head>
+        <title>Ninjabox - Intelligent Solutions for a Digital World</title>
+        <meta
+          name="description"
+          content="We architect powerful, scalable, and intelligent technology solutions."
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the index.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      </Head>
+
+      {/* Hero Section */}
+      <section className="relative flex h-screen w-full items-center justify-center overflow-hidden">
+        {/* 3D Background Scene */}
+        <div className="absolute inset-0 z-0 bg-background">
+          <DynamicHeroScene />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+        {/* Foreground Content */}
+        <motion.div
+          className="relative z-10 flex flex-col items-center text-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.h1
+            className="text-5xl font-bold tracking-tight text-foreground md:text-7xl"
+            variants={itemVariants}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs/pages/getting-started?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Intelligent Solutions {/* */}
+            <br />
+            for a Digital World. {/* */}
+          </motion.h1>
+
+          <motion.p
+            className="mt-6 max-w-2xl px-4 text-lg text-muted-foreground"
+            variants={itemVariants}
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            We architect powerful, scalable, and intelligent technology
+            solutions that drive growth, streamline operations, and deliver a
+            competitive edge for leading enterprises and innovative startups.
+          </motion.p>
+
+          <motion.div
+            className="mt-10 flex flex-col gap-4 sm:flex-row"
+            variants={itemVariants}
+          >
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+              Schedule a Discovery Call
+            </Button>
+
+            <Button size="lg" variant="outline">
+              Explore Our Services <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </motion.div>
+        </motion.div>
+      </section>
+      <TrustedBy />
+
+      <ServicesOverview />
+      <WhyChooseUs />
+      <CtaBlock />
+      {/* ... Other homepage sections will go here ... */}
+    </>
   );
 }
