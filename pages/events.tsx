@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import Head from "next/head";
 import {
   Card,
   CardContent,
@@ -6,41 +6,44 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Calendar, MapPin, Users } from 'lucide-react';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Calendar, MapPin, Users } from "lucide-react";
 
 // Data for Upcoming Events [cite: 138-150]
 const upcomingEvents = [
   {
-    title: 'Webinar: AI Integration for Small & Medium Enterprises (SMEs)',
-    date: 'November 12, 2025 | 11:00 AM WAT',
-    location: 'Virtual',
+    title: "Webinar: AI Integration for Small & Medium Enterprises (SMEs)",
+    date: "November 12, 2025 | 11:00 AM WAT",
+    location: "Virtual",
     icon: <Users className="h-6 w-6 text-blue-600" />,
-    description: 'Is your business ready for the AI revolution? Join our Head of Data Science, Mandieng Bot, for a practical webinar on how SMEs can leverage artificial intelligence to optimize operations, enhance customer experience, and drive revenue. This session will demystify AI and provide a clear roadmap for implementation.',
-    ctaText: 'Register for Free',
+    description:
+      "Is your business ready for the AI revolution? Join our Head of Data Science, Mandieng Bot, for a practical webinar on how SMEs can leverage artificial intelligence to optimize operations, enhance customer experience, and drive revenue. This session will demystify AI and provide a clear roadmap for implementation.",
+    ctaText: "Register for Free",
   },
   {
-    title: 'Ninjabox Dev Meetup: Jos Edition',
-    date: 'December 5, 2025 | 4:00 PM - 7:00 PM WAT',
-    location: 'Ninjabox Hub, Jos, Plateau State',
+    title: "Ninjabox Dev Meetup: Jos Edition",
+    date: "December 5, 2025 | 4:00 PM - 7:00 PM WAT",
+    location: "Ninjabox Hub, Jos, Plateau State",
     icon: <MapPin className="h-6 w-6 text-blue-600" />,
-    description: "We're opening our doors for a special evening of networking, tech talks, and pizza! This meetup is for developers, designers, and tech enthusiasts in the Jos ecosystem. Come and connect with peers, discuss the latest trends in software engineering, and meet the Ninjabox team.",
-    ctaText: 'RSVP Now',
+    description:
+      "We're opening our doors for a special evening of networking, tech talks, and pizza! This meetup is for developers, designers, and tech enthusiasts in the Jos ecosystem. Come and connect with peers, discuss the latest trends in software engineering, and meet the Ninjabox team.",
+    ctaText: "RSVP Now",
   },
 ];
 
 // Placeholder for Past Events [cite: 152]
 const pastEvents = [
   {
-    title: 'Past Event Example 1',
-    date: 'June 20, 2025',
-    description: 'A brief description of a successful past event, workshop, or webinar.',
+    title: "Past Event Example 1",
+    date: "June 20, 2025",
+    description:
+      "A brief description of a successful past event, workshop, or webinar.",
   },
   {
-    title: 'Past Event Example 2',
-    date: 'March 15, 2025',
-    description: 'Another summary of a past community engagement or tech talk.',
+    title: "Past Event Example 2",
+    date: "March 15, 2025",
+    description: "Another summary of a past community engagement or tech talk.",
   },
 ];
 
@@ -59,12 +62,12 @@ export default function EventsPage() {
       <section className="py-24 bg-muted/20">
         <div className="container max-w-7xl text-center">
           <h1 className="text-5xl font-bold tracking-tight text-foreground">
-            Events: Connecting, Learning, and Innovating Together
-          </h1> {/* */}
+            Connecting, Learning, and Innovating Together
+          </h1>
           <p className="mt-6 max-w-3xl mx-auto text-xl text-muted-foreground">
-            Join us at our workshops, webinars, and community events to 
-            explore the future of technology, network with industry leaders, 
-            and enhance your skills. {/* */}
+            Join us at our workshops, webinars, and community events to explore
+            the future of technology, network with industry leaders, and enhance
+            your skills.
           </p>
         </div>
       </section>
@@ -74,7 +77,8 @@ export default function EventsPage() {
         <div className="container mx-auto max-w-7xl">
           <h2 className="text-4xl font-bold tracking-tight text-center mb-16">
             Upcoming Events
-          </h2> {/* */}
+          </h2>{" "}
+          {/* */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {upcomingEvents.map((event) => (
               <Card key={event.title} className="flex flex-col">
@@ -113,7 +117,8 @@ export default function EventsPage() {
         <div className="container mx-auto max-w-7xl">
           <h2 className="text-4xl font-bold tracking-tight text-center mb-16">
             Past Events
-          </h2> {/* */}
+          </h2>{" "}
+          {/* */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {pastEvents.map((event) => (
               <Card key={event.title} className="bg-background">

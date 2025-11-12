@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 
-// Data for Sidebar Categories [cite: 164-170]
 const categories = [
   {
     title: 'Software Engineering',
@@ -39,7 +38,7 @@ export function BlogSidebar() {
         <Search className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
       </div>
 
-      {/* Categories */}
+     
       <div>
         <h3 className="text-xl font-semibold mb-4">
           Explore by Category

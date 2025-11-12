@@ -9,7 +9,6 @@ import {
 } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 
-// Data from the doc [cite: 13-17]
 const services = [
   {
     title: 'Strategic IT & Business Consulting',
@@ -31,6 +30,10 @@ const services = [
     title: 'Corporate Training & Skilling',
     description: 'Empowering your workforce with the critical tech skills needed to thrive in the digital economy.',
   },
+  {
+      title: 'Innovation & Startup Incubation',
+      description: 'Nurturing creative ideas into scalable ventures through mentorship, prototyping support, and investor readiness programs.',
+    },
 ];
 
 export function ServicesOverview() {
@@ -60,7 +63,7 @@ export function ServicesOverview() {
                 <CardHeader>
                   <CardTitle>{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex flex-grow flex-col justify-between">
+                <CardContent className="flex grow flex-col justify-between">
                   <CardDescription className="mb-6">
                     {service.description}
                   </CardDescription>

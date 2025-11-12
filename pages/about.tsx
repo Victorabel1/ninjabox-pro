@@ -37,8 +37,6 @@ export default function AboutPage() {
           content="Learn about Ninjabox's mission, vision, and our commitment to innovation, integrity, and impact."
         />
       </Head>
-
-      {/* --- 1. Page Hero Section --- */}
       <section className="py-24 bg-muted/20">
         <div className="container max-w-7xl text-center">
           <h1 className="text-5xl font-bold tracking-tight text-foreground">
@@ -46,7 +44,7 @@ export default function AboutPage() {
           </h1>
           <h2 className="mt-2 text-5xl font-bold tracking-tight text-blue-600">
             Innovation, Integrity, and Impact.
-          </h2> {/* [cite: 31] */}
+          </h2> 
         </div>
       </section>
 
@@ -100,7 +98,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* --- 4. Core Values Section --- */}
       <section className="py-24">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-16 text-center">
